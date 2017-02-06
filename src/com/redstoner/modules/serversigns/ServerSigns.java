@@ -6,8 +6,7 @@ import com.redstoner.misc.persistence.FileAdapter;
 import com.redstoner.misc.persistence.JsonFileAdapter;
 import com.redstoner.modules.Module;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Set;
 
 public class ServerSigns implements Module {
@@ -63,7 +62,18 @@ public class ServerSigns implements Module {
 	
 	@Override
 	public String getCommandString() {
-		return null;
+		try (Reader reader = new InputStreamReader(ServerSigns.class.getResourceAsStream("serversigns.cmd"));
+			 BufferedReader buf = new BufferedReader(reader)) {
+			StringBuilder builder = new StringBuilder();
+			String line;
+			while ((line = buf.readLine()) != null) {
+				builder.append(line).append('\n');
+			}
+			return builder.toString();
+		} catch (IOException | NullPointerException ex) {
+			ex.printStackTrace();
+			return null;
+		}
 	}
 	
 }

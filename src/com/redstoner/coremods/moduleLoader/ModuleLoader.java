@@ -1,11 +1,5 @@
 package com.redstoner.coremods.moduleLoader;
 
-import java.util.ArrayList;
-
-import org.bukkit.Bukkit;
-import org.bukkit.command.CommandSender;
-import org.bukkit.event.Listener;
-
 import com.nemez.cmdmgr.Command;
 import com.nemez.cmdmgr.Command.AsyncType;
 import com.nemez.cmdmgr.CommandManager;
@@ -17,6 +11,11 @@ import com.redstoner.misc.Main;
 import com.redstoner.misc.Utils;
 import com.redstoner.modules.CoreModule;
 import com.redstoner.modules.Module;
+import org.bukkit.Bukkit;
+import org.bukkit.command.CommandSender;
+import org.bukkit.event.Listener;
+
+import java.util.ArrayList;
 
 /** The module loader, mother of all modules. Responsible for loading and taking care of all modules.
  * 
